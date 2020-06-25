@@ -52,10 +52,9 @@ def won():
         return
         
 while True and turn < 1000:
-    #turn one
     
+    #turn one
     if turn == 0:
-
         roll()
         
         #1 check
@@ -87,12 +86,8 @@ while True and turn < 1000:
             print('You held, smart')
             turn += 1
             continue
-         
-        # else:
-        #     turn += 1
 
     #normal play
-
     #cpu play
     if turn % 1 == 0:
         
@@ -145,19 +140,8 @@ while True and turn < 1000:
             print('You held, smart')
             turn += 1
             continue
-        # ###
-        # roll()
-        # print('You rolled a', rolledA ,'!')
-        # humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
-        # if humanHold == 0:
-        #     while humanHold != 1:
-        #         print('You rolled a',roll(),'!')
-        #         humanHold 
-        #         humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
-        # else:
-        #     turn += 1
     else:
         #debug line
-        print('A fatal error has occured on turn',turn,'. Check if conditionals resolve')
+        print('Open an issue, turn conditions weren\'t met')
         quit()
-print('escaped')
+print('Exited the loop, please open an issue')
