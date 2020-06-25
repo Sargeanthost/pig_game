@@ -41,7 +41,16 @@ def is_above_100():
         humanWins = False
         cpuWins = False
 
-
+def won():
+    if cpuWins == True:
+        print('I reached 100!')
+        quit()
+    elif humanWins == True:
+        print('You reached 100!')
+        quit()
+    else:
+        return
+        
 while True and turn < 1000:
     #turn one
     
@@ -60,17 +69,18 @@ while True and turn < 1000:
         print('You rolled a',rolledA, '!')
         humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
         #continue rolling
-        while humanHold == 0:
-            roll()
-            #1 check
-            if rolledA ==1:
-                print('Looks like you rolled a 1. Better luck next time')
-                humanTempScore = 0
-                turn+=1
-                continue
-            print('You rolled a',rolledA,'!')
-            humanTempScore += rolledA
-            humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
+        if humanHold == 0:    
+            while humanHold == 0:
+                roll()
+                #1 check
+                if rolledA ==1:
+                    print('Looks like you rolled a 1. Better luck next time')
+                    humanTempScore = 0
+                    turn+=1
+                    continue
+                print('You rolled a',rolledA,'!')
+                humanTempScore += rolledA
+                humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
         #held, store temp as perm score, advance to cpu
         if humanHold == 1:
             humanTempScore = humanScore
@@ -91,7 +101,10 @@ while True and turn < 1000:
         if rolledA == 1:
             print('Looks like I rolled a',rolledA,'. Better luck next time')
             turn+=1
+        
         else:
+            is_above_100()
+            won()
             print('I rolled a', rolledA,", Awesome!\nYour turn!")
             cpuScore += rolledA
             turn += 1
@@ -106,22 +119,26 @@ while True and turn < 1000:
             humanTempScore = 0
             turn+=1
             continue
-        
+        #check if game has been won
+        is_above_100()
+        won()
         #immediately roll
         print('You rolled a',rolledA, '!')
+
         humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
         #continue rolling
-        while humanHold == 0:
-            roll()
-            #1 check
-            if rolledA ==1:
-                print('Looks like you rolled a 1. Better luck next time')
-                humanTempScore = 0
-                turn+=1
-                continue
-            print('You rolled a',rolledA,'!')
-            humanTempScore += rolledA
-            humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
+        if humanHold == 0:    
+            while humanHold == 0:
+                roll()
+                #1 check
+                if rolledA ==1:
+                    print('Looks like you rolled a 1. Better luck next time')
+                    humanTempScore = 0
+                    turn+=1
+                    continue
+                print('You rolled a',rolledA,'!')
+                humanTempScore += rolledA
+                humanHold = int(input('Enter 1 to hold or 0 to continue rolling: '))
         #held, store temp as perm score, advance to cpu
         if humanHold == 1:
             humanTempScore = humanScore
